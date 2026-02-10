@@ -1,0 +1,853 @@
+/* ============================================
+   Intel: Sustainability Through the Ages
+   Vertical spine timeline - alternating left/right
+   ============================================ */
+
+:root {
+  --cyan-50: #ecfeff;
+  --cyan-400: #22d3ee;
+  --cyan-500: #06b6d4;
+  --cyan-600: #0891b2;
+  --emerald-50: #ecfdf5;
+  --emerald-400: #34d399;
+  --emerald-500: #10b981;
+  --emerald-600: #059669;
+  --teal-50: #f0fdfa;
+  --teal-100: #ccfbf1;
+  --teal-400: #2dd4bf;
+  --teal-500: #14b8a6;
+  --teal-600: #0d9488;
+  --slate-100: #f1f5f9;
+  --slate-200: #e2e8f0;
+  --slate-300: #cbd5e1;
+  --slate-500: #64748b;
+  --slate-600: #475569;
+  --slate-700: #334155;
+  --slate-800: #1e293b;
+  --slate-900: #0f172a;
+  --white: #ffffff;
+  --shadow-sm: 0 1px 2px rgba(0, 0, 0, 0.05);
+  --shadow-md: 0 4px 6px -1px rgba(0, 0, 0, 0.08), 0 2px 4px -2px rgba(0, 0, 0, 0.06);
+  --shadow-lg: 0 10px 15px -3px rgba(0, 0, 0, 0.08), 0 4px 6px -4px rgba(0, 0, 0, 0.06);
+  --radius: 8px;
+  --transition: 0.3s ease;
+}
+
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+}
+
+body {
+  margin: 0;
+  font-family: system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+  font-size: 16px;
+  line-height: 1.6;
+  color: var(--slate-800);
+  background: var(--slate-100);
+}
+
+/* --------------------------------------------
+   Hero - editorial, not a big banner
+   -------------------------------------------- */
+.hero {
+  background: linear-gradient(180deg, var(--white) 0%, var(--slate-100) 100%);
+  border-bottom: 1px solid var(--slate-200);
+  padding: 2rem 1.5rem 2.5rem;
+  text-align: center;
+}
+
+.hero-inner {
+  max-width: 42rem;
+  margin: 0 auto;
+}
+
+.hero-logo-wrap {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 1rem;
+  margin-bottom: 1.5rem;
+}
+
+.hero-line {
+  flex: 1;
+  max-width: 120px;
+  height: 1px;
+  background: linear-gradient(90deg, transparent, var(--teal-500), transparent);
+}
+
+.hero-logo {
+  height: 32px;
+  width: auto;
+  opacity: 0.95;
+}
+
+.hero-title {
+  margin: 0 0 0.75rem;
+  font-size: clamp(1.75rem, 4vw, 2.25rem);
+  font-weight: 700;
+  color: var(--slate-900);
+  letter-spacing: -0.02em;
+  line-height: 1.2;
+}
+
+.hero-sub {
+  margin: 0;
+  font-size: 1rem;
+  color: var(--slate-600);
+  max-width: 36rem;
+  margin-left: auto;
+  margin-right: auto;
+  line-height: 1.6;
+}
+
+/* --------------------------------------------
+   Timeline section - vertical spine
+   -------------------------------------------- */
+.timeline-section {
+  padding: 2.5rem 1.5rem 3rem;
+}
+
+.timeline-container {
+  max-width: 72rem;
+  margin: 0 auto;
+}
+
+/* Legend */
+.timeline-legend {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 1.5rem;
+  margin-bottom: 3rem;
+}
+
+.legend-item {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  font-size: 0.875rem;
+  color: var(--slate-600);
+}
+
+.legend-dot {
+  width: 12px;
+  height: 12px;
+  border-radius: 50%;
+}
+
+.legend-dot--innovation {
+  background: var(--cyan-500);
+}
+
+.legend-dot--sustainability {
+  background: var(--emerald-500);
+}
+
+.legend-dot--commitment {
+  background: var(--teal-500);
+}
+
+/* Timeline rows - desktop: alternating left/right */
+.timeline {
+  display: flex;
+  flex-direction: column;
+  gap: 0;
+}
+
+.timeline-row {
+  display: flex;
+  align-items: flex-start;
+  gap: 2rem;
+}
+
+.timeline-card-wrap {
+  flex: 1;
+  min-width: 0;
+}
+
+.timeline-card-wrap--empty {
+  flex: 1;
+  min-width: 0;
+}
+
+.timeline-spine-cell {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  flex-shrink: 0;
+  position: relative;
+}
+
+.milestone-year {
+  display: block;
+  font-size: 3rem;
+  font-weight: 700;
+  color: var(--slate-300);
+  letter-spacing: -0.03em;
+  line-height: 1;
+  margin-bottom: 0.5rem;
+}
+
+.timeline-dot {
+  width: 16px;
+  height: 16px;
+  border-radius: 50%;
+  border: 4px solid var(--white);
+  box-shadow: var(--shadow-md);
+  flex-shrink: 0;
+  z-index: 2;
+}
+
+.timeline-dot--innovation {
+  background: var(--cyan-500);
+}
+
+.timeline-dot--sustainability {
+  background: var(--emerald-500);
+}
+
+.timeline-dot--commitment {
+  background: var(--teal-500);
+}
+
+.timeline-line {
+  width: 2px;
+  min-height: 8rem;
+  background: linear-gradient(180deg, var(--slate-300), var(--slate-200));
+  flex: 1;
+  min-height: 8rem;
+}
+
+.timeline-row--last .timeline-spine-cell .timeline-line {
+  display: none;
+}
+
+/* Milestone cards - border by category, image + text, hover reveal */
+.milestone-card {
+  background: var(--white);
+  border-radius: var(--radius);
+  border: 2px solid;
+  padding: 1.5rem;
+  box-shadow: var(--shadow-sm);
+  transition: transform var(--transition), box-shadow var(--transition);
+  outline: none;
+}
+
+.milestone-card--innovation {
+  border-color: var(--cyan-400);
+}
+
+.milestone-card--sustainability {
+  border-color: var(--emerald-400);
+}
+
+.milestone-card--commitment {
+  border-color: var(--teal-400);
+}
+
+.milestone-card:hover,
+.milestone-card:focus-within {
+  transform: translateY(-4px);
+  box-shadow: var(--shadow-lg), 0 0 0 2px var(--white), 0 0 0 4px var(--teal-400);
+}
+
+.milestone-card-inner {
+  display: flex;
+  gap: 1rem;
+  align-items: flex-start;
+}
+
+/* Left row: image on right (row-reverse) */
+.timeline-row--left .milestone-card-inner {
+  flex-direction: row-reverse;
+}
+
+.timeline-row--left .milestone-text {
+  text-align: right;
+}
+
+.timeline-row--left .milestone-tag {
+  margin-left: auto;
+}
+
+/* Right row: image on left */
+.timeline-row--right .milestone-card-inner {
+  flex-direction: row;
+}
+
+.timeline-row--right .milestone-text {
+  text-align: left;
+}
+
+.milestone-image-wrap {
+  width: 128px;
+  height: 128px;
+  flex-shrink: 0;
+  border-radius: var(--radius);
+  overflow: hidden;
+  background: var(--slate-200);
+}
+
+.milestone-image-wrap img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  display: block;
+}
+
+.milestone-text {
+  flex: 1;
+  min-width: 0;
+}
+
+.milestone-title {
+  margin: 0 0 0.5rem;
+  font-size: 1.25rem;
+  font-weight: 700;
+  color: var(--slate-900);
+}
+
+.milestone-desc {
+  margin: 0;
+  font-size: 0.875rem;
+  color: var(--slate-600);
+  line-height: 1.5;
+}
+
+/* Additional details - hidden by default, reveal on hover */
+.milestone-details {
+  max-height: 0;
+  opacity: 0;
+  overflow: hidden;
+  transition: max-height var(--transition), opacity var(--transition);
+  margin-top: 0;
+}
+
+.milestone-details p {
+  margin: 0;
+  padding-top: 0.75rem;
+  margin-top: 0.75rem;
+  border-top: 1px solid;
+  font-size: 0.875rem;
+  line-height: 1.5;
+}
+
+.milestone-card--innovation .milestone-details p {
+  border-color: var(--cyan-400);
+  color: var(--cyan-600);
+}
+
+.milestone-card--sustainability .milestone-details p {
+  border-color: var(--emerald-400);
+  color: var(--emerald-600);
+}
+
+.milestone-card--commitment .milestone-details p {
+  border-color: var(--teal-400);
+  color: var(--teal-600);
+}
+
+.milestone-card:hover .milestone-details,
+.milestone-card:focus-within .milestone-details {
+  max-height: 12rem;
+  opacity: 1;
+}
+
+.milestone-tag {
+  display: inline-block;
+  margin-top: 0.75rem;
+  font-size: 0.75rem;
+  font-weight: 500;
+  padding: 0.25rem 0.75rem;
+  border-radius: 9999px;
+}
+
+.milestone-tag--innovation {
+  background: var(--cyan-50);
+  color: var(--cyan-600);
+}
+
+.milestone-tag--sustainability {
+  background: var(--emerald-50);
+  color: var(--emerald-600);
+}
+
+.milestone-tag--commitment {
+  background: var(--teal-50);
+  color: var(--teal-600);
+}
+
+.timeline-hint {
+  text-align: center;
+  font-size: 0.875rem;
+  color: var(--slate-500);
+  margin: 2rem 0 0;
+  padding: 0 1rem;
+}
+
+/* --------------------------------------------
+   Mobile: spine on left, cards stack on right,
+   details visible by default
+   -------------------------------------------- */
+@media (max-width: 767px) {
+  .timeline-row {
+    flex-direction: row;
+    gap: 1rem;
+    align-items: stretch;
+  }
+
+  .timeline-row--left,
+  .timeline-row--right {
+    flex-direction: row;
+  }
+
+  .timeline-card-wrap--empty {
+    display: none;
+  }
+
+  .timeline-spine-cell {
+    order: -1;
+    flex-shrink: 0;
+  }
+
+  .timeline-card-wrap {
+    flex: 1;
+    min-width: 0;
+  }
+
+  .timeline-row--left .timeline-card-wrap,
+  .timeline-row--right .timeline-card-wrap {
+    order: 1;
+  }
+
+  .milestone-year {
+    font-size: 2rem;
+    margin-bottom: 0.25rem;
+  }
+
+  .timeline-dot {
+    width: 12px;
+    height: 12px;
+    border-width: 2px;
+  }
+
+  .timeline-line {
+    min-height: 4rem;
+    flex: 1;
+  }
+
+  .milestone-card-inner {
+    flex-direction: column;
+  }
+
+  .timeline-row--left .milestone-card-inner,
+  .timeline-row--right .milestone-card-inner {
+    flex-direction: column;
+  }
+
+  .timeline-row--left .milestone-text,
+  .timeline-row--right .milestone-text {
+    text-align: left;
+  }
+
+  .timeline-row--left .milestone-tag {
+    margin-left: 0;
+  }
+
+  .milestone-image-wrap {
+    width: 100%;
+    height: 10rem;
+  }
+
+  .milestone-card:hover,
+  .milestone-card:focus-within {
+    transform: none;
+  }
+
+  /* On mobile, details always visible */
+  .milestone-details {
+    max-height: 20rem;
+    opacity: 1;
+  }
+
+  .milestone-details p {
+    margin-top: 0.75rem;
+    padding-top: 0.75rem;
+  }
+}
+
+/* --------------------------------------------
+   Three-Column Section
+   -------------------------------------------- */
+.three-column-section {
+  background: var(--slate-100);
+}
+
+.three-column-section .btn {
+  transition: all var(--transition);
+}
+
+.three-column-section .btn:hover {
+  transform: translateY(-2px);
+  box-shadow: var(--shadow-md);
+}
+
+/* --------------------------------------------
+   Subscription Section
+   -------------------------------------------- */
+.subscription-section {
+  background: var(--slate-100);
+}
+
+.subscription-section .form-label {
+  font-weight: 600;
+  color: var(--slate-700);
+  margin-bottom: 0.5rem;
+}
+
+.subscription-section .form-control:focus {
+  border-color: var(--teal-500);
+  box-shadow: 0 0 0 0.2rem rgba(20, 184, 166, 0.25);
+}
+
+.subscription-section .btn-primary {
+  background-color: var(--teal-600);
+  border-color: var(--teal-600);
+}
+
+.subscription-section .btn-primary:hover {
+  background-color: var(--teal-700);
+  border-color: var(--teal-700);
+}
+
+/* --------------------------------------------
+   Footer
+   -------------------------------------------- */
+.site-footer {
+  padding: 1.5rem 1rem;
+  text-align: center;
+  font-size: 0.875rem;
+  color: var(--slate-500);
+  background: var(--white);
+  border-top: 1px solid var(--slate-200);
+}
+
+.site-footer p {
+  margin: 0;
+}
+
+.site-footer a {
+  transition: color var(--transition);
+}
+
+.site-footer a:hover {
+  color: var(--teal-500) !important;
+}
+
+/* --------------------------------------------
+   RTL Support - Comprehensive Layout Adjustments
+   -------------------------------------------- */
+[dir="rtl"] {
+  direction: rtl;
+}
+
+/* Make RTL layout changes more obvious - all text aligns right */
+[dir="rtl"] body {
+  text-align: right;
+}
+
+[dir="rtl"] h1,
+[dir="rtl"] h2,
+[dir="rtl"] h3,
+[dir="rtl"] h4,
+[dir="rtl"] p {
+  text-align: right;
+}
+
+[dir="rtl"] .hero-logo-wrap {
+  flex-direction: row-reverse;
+}
+
+[dir="rtl"] .hero-sub {
+  text-align: center;
+  direction: rtl;
+}
+
+[dir="rtl"] .hero-title {
+  direction: rtl;
+}
+
+[dir="rtl"] .milestone-title,
+[dir="rtl"] .milestone-desc,
+[dir="rtl"] .milestone-details p {
+  direction: rtl;
+  text-align: right;
+}
+
+[dir="rtl"] .timeline-legend {
+  flex-direction: row-reverse;
+}
+
+/* In RTL mode, reverse the entire timeline row structure */
+[dir="rtl"] .timeline-row {
+  flex-direction: row-reverse;
+}
+
+/* In RTL, what was "left" row should appear on right, and vice versa */
+[dir="rtl"] .timeline-row--left {
+  flex-direction: row-reverse;
+}
+
+[dir="rtl"] .timeline-row--right {
+  flex-direction: row-reverse;
+}
+
+/* Card inner layout - keep images and text together but reverse order */
+[dir="rtl"] .timeline-row--left .milestone-card-inner,
+[dir="rtl"] .timeline-row--right .milestone-card-inner {
+  flex-direction: row-reverse;
+}
+
+/* Text alignment for RTL - all text should align right */
+[dir="rtl"] .timeline-row--left .milestone-text,
+[dir="rtl"] .timeline-row--right .milestone-text {
+  text-align: right;
+}
+
+[dir="rtl"] .timeline-row--left .milestone-tag,
+[dir="rtl"] .timeline-row--right .milestone-tag {
+  margin-left: auto;
+  margin-right: 0;
+}
+
+[dir="rtl"] .timeline-hint {
+  text-align: center;
+}
+
+/* RTL adjustments for three-column section */
+[dir="rtl"] .three-column-section .d-flex {
+  flex-direction: row-reverse;
+}
+
+[dir="rtl"] .three-column-section .me-3 {
+  margin-right: 0 !important;
+  margin-left: 1rem !important;
+}
+
+[dir="rtl"] .three-column-section .ms-1 {
+  margin-left: 0 !important;
+  margin-right: 0.25rem !important;
+}
+
+[dir="rtl"] .three-column-section .text-muted {
+  text-align: right;
+}
+
+[dir="rtl"] .three-column-section p {
+  text-align: right;
+  direction: rtl;
+}
+
+/* RTL adjustments for subscription form */
+[dir="rtl"] .subscription-section .text-center {
+  text-align: center !important;
+}
+
+[dir="rtl"] .subscription-section .form-label {
+  text-align: right;
+  direction: rtl;
+}
+
+[dir="rtl"] .subscription-section .form-text {
+  text-align: right;
+  direction: rtl;
+}
+
+[dir="rtl"] .subscription-section .form-check-label {
+  text-align: right;
+  direction: rtl;
+}
+
+[dir="rtl"] .subscription-section input,
+[dir="rtl"] .subscription-section textarea {
+  direction: rtl;
+  text-align: right;
+}
+
+/* RTL adjustments for footer */
+[dir="rtl"] .site-footer {
+  text-align: right;
+  direction: rtl;
+}
+
+[dir="rtl"] .site-footer p {
+  direction: rtl;
+}
+
+[dir="rtl"] .site-footer .text-md-end {
+  text-align: left !important;
+}
+
+[dir="rtl"] .site-footer .text-center {
+  text-align: center !important;
+}
+
+[dir="rtl"] .site-footer .list-inline-item.me-3 {
+  margin-right: 0 !important;
+  margin-left: 1rem !important;
+}
+
+/* RTL adjustments for Bootstrap components */
+[dir="rtl"] .container {
+  direction: rtl;
+}
+
+[dir="rtl"] .row {
+  direction: rtl;
+}
+
+/* Fix Bootstrap spacing utilities in RTL */
+[dir="rtl"] .me-3 {
+  margin-left: 1rem !important;
+  margin-right: 0 !important;
+}
+
+[dir="rtl"] .ms-1 {
+  margin-right: 0.25rem !important;
+  margin-left: 0 !important;
+}
+
+[dir="rtl"] .ms-2 {
+  margin-right: 0.5rem !important;
+  margin-left: 0 !important;
+}
+
+[dir="rtl"] .modal-header,
+[dir="rtl"] .modal-body,
+[dir="rtl"] .modal-footer {
+  text-align: right;
+}
+
+[dir="rtl"] .btn-close {
+  margin-left: 0;
+  margin-right: auto;
+}
+
+/* --------------------------------------------
+   Accessibility Improvements
+   -------------------------------------------- */
+/* Ensure sufficient color contrast */
+.hero-title {
+  color: var(--slate-900);
+}
+
+.text-muted {
+  color: var(--slate-600) !important;
+}
+
+/* Focus indicators */
+*:focus-visible {
+  outline: 2px solid var(--teal-500);
+  outline-offset: 2px;
+}
+
+.btn:focus-visible {
+  outline: 2px solid var(--teal-500);
+  outline-offset: 2px;
+}
+
+/* Skip link for screen readers */
+.skip-link {
+  position: absolute;
+  top: -40px;
+  left: 0;
+  background: var(--slate-900);
+  color: var(--white);
+  padding: 8px;
+  text-decoration: none;
+  z-index: 100;
+}
+
+.skip-link:focus {
+  top: 0;
+}
+
+/* Simple Language Buttons */
+.language-buttons {
+  position: fixed;
+  top: 20px;
+  right: 20px;
+  z-index: 1000;
+  display: flex;
+  gap: 8px;
+  flex-wrap: wrap;
+}
+
+.lang-btn {
+  padding: 8px 16px;
+  border: 2px solid #333;
+  background: white;
+  cursor: pointer;
+  font-size: 14px;
+  font-weight: 600;
+}
+
+.lang-btn:hover {
+  background: #f0f0f0;
+}
+
+.lang-btn.active {
+  background: #333;
+  color: white;
+}
+
+.language-note {
+  position: fixed;
+  top: 70px;
+  right: 20px;
+  z-index: 1000;
+  background: #fff3cd;
+  border: 1px solid #ffc107;
+  padding: 8px 12px;
+  border-radius: 4px;
+  font-size: 12px;
+  max-width: 300px;
+  color: #856404;
+}
+
+[dir="rtl"] .language-buttons {
+  right: auto;
+  left: 20px;
+}
+
+[dir="rtl"] .language-note {
+  right: auto;
+  left: 20px;
+}
+
+/* Ensure images have proper display */
+img {
+  max-width: 100%;
+  height: auto;
+}
+
+/* Improve form accessibility */
+.form-control:invalid {
+  border-color: #dc3545;
+}
+
+.form-control:valid {
+  border-color: #198754;
+}
+
+/* Modal accessibility */
+.modal-header {
+  border-bottom: 1px solid rgba(0, 0, 0, 0.1);
+}
+
+.modal-footer {
+  border-top: 1px solid rgba(0, 0, 0, 0.1);
+}
